@@ -185,7 +185,7 @@ epoll在内核Cache中维护了一颗红黑树(可以使用hash表但占空间�
 
 ### CPU缓存一致性
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/multiCache.jpg"/>
+<img src="./jNote/multiCache.jpg"/>
 
 <table>
 <thead>
@@ -493,7 +493,7 @@ mysql单机qps在2000~4000左右，取决于表和查询复杂度
 
 - 主从复制-读写分离：半同步复制/同步双写
 
-  <img src="/Users/bytedance/Downloads/个人资料/jNote/mysqlSemiDump.png"/>
+  <img src="./jNote/mysqlSemiDump.png"/>
 
 - 使用MySQL自带分区表(可跨磁盘)
 
@@ -532,7 +532,7 @@ mysql单机qps在2000~4000左右，取决于表和查询复杂度
 主流分片方案分DB proxy(如Mycat)和JDBC proxy(如sharding-jdbc)。DB Proxy一般会实现数据库协议，缺点是链路长、Proxy单点、Prepare支持度不够，JDBC Proxy一般与业务层部分耦合，缺点是接入繁琐、DB不透明、语言限制
 Sharding+Proxy方案实际只解决了单机容量问题，适用于简单SQL场景；对于跨纬度join、数据聚合、唯一键约束、业务拆分维度、多维度支持、Hash/Range对应的多访问与热点数据等问题均需要做折中；同时Sharding+Proxy方案还引入了全局ID问题(步长自增，容易埋坑；依赖时间一致性)、数据维护成本问题、运维友好度问题、业务兼容性问题、拆分扩容设计问题等
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/database分片.png"/>
+<img src="./jNote/database分片.png"/>
 
 ### Tips
 
@@ -702,7 +702,7 @@ LevelDB为KV存储磁盘数据库，RocksDB是LevelDB的升级版，底层实现
 
 ### 读写
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/LevelDBRW.jpg"/>
+<img src="./jNote/LevelDBRW.jpg"/>
 
 - 读：MemTable(跳跃表)->ImmuTable->各层SSTable
 - 写：MemTable可读写，ImmuTable只读
@@ -734,7 +734,7 @@ LevelDB为KV存储磁盘数据库，RocksDB是LevelDB的升级版，底层实现
 
 ## rocket
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/rocketMQ.jpg"/>
+<img src="./jNote/rocketMQ.jpg"/>
 
 ### 基础概念
 
@@ -782,7 +782,7 @@ QMQ使用时间轮+外部存储实现任意时间的延时，时间轮精度可�
 
 ### 持久化(文件形式)
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/rocketMQReadWrite.jpg"/>
+<img src="./jNote/rocketMQReadWrite.jpg"/>
 
 <img src="./jNote/mq-msg.jpg">
 
@@ -808,7 +808,7 @@ QMQ使用时间轮+外部存储实现任意时间的延时，时间轮精度可�
 
 ### 事务
 
-broker是一个天然的协调点，订阅者一定要做好幂等<img src="/Users/bytedance/Downloads/个人资料/jNote/mqTransaction.png"/>
+broker是一个天然的协调点，订阅者一定要做好幂等<img src="./jNote/mqTransaction.png"/>
 
 ### Tips
 
@@ -1392,7 +1392,7 @@ Raft利用日志连续性(两阶段提交,日志同步连续)和选举时选择�
 
 ZXID是一个64位的数字， 低32位是一个简单的单调递增的计数器，高32位则代表Leader周期epoch的编号；每当Leader选出，就会收集各个follower epoch值，+1后作为新的epoch，并将低32位重置0。分恢复模式、广播模式两种阶段。
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/zkRoles.jpg"/>
+<img src="./jNote/zkRoles.jpg"/>
 
 - 选举阶段(looking)：Follower广播竞选，得到半数以上的节点当选准Leader
   - 投票含基本信息逻辑时钟(轮次)、ZXID、SID(server id)、LOOKING信息等，ZXID越大越优先，SID次优先
@@ -1421,7 +1421,7 @@ ZXID是一个64位的数字， 低32位是一个简单的单调递增的计数�
 
 ### 2PC协议
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/2pc.jpg"/>
+<img src="./jNote/2pc.jpg"/>
 
 - 流程
 
@@ -1451,7 +1451,7 @@ ZXID是一个64位的数字， 低32位是一个简单的单调递增的计数�
 
 ### 3PC协议
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/3pc.jpg"/>
+<img src="./jNote/3pc.jpg"/>
 
 - 流程
 
@@ -1717,7 +1717,7 @@ SpringBoot专注于快速方便的开发单个个体微服务，SpringCloud是�
   - Initiation Dispatcher初始分发器：Reactor角色本身，分发分离的事件如Netty中的EventLoop
 
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/reactor.jpg"/>
+<img src="./jNote/reactor.jpg"/>
 
 - 启动流程
 
@@ -1730,7 +1730,7 @@ SpringBoot专注于快速方便的开发单个个体微服务，SpringCloud是�
   - 初始分发器触发事件处理器的回调方法
 
 
-<img src="/Users/bytedance/Downloads/个人资料/jNote/reactorArchtect.png"/>
+<img src="./jNote/reactorArchtect.png"/>
 
 MultiReactor旨在分离Accept事件/读写事件,提高并发
 
@@ -1764,7 +1764,7 @@ MultiReactor旨在分离Accept事件/读写事件,提高并发
 
 ## Dubbo
 
-<img src = "/Users/bytedance/Downloads/个人资料/jNote/dubbo.png"/>
+<img src = "./jNote/dubbo.png"/>
 
 <img src ="./jNote/dubboArchitect.png"/>
 
