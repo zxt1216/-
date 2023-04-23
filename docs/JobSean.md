@@ -2304,11 +2304,10 @@ public class Invoker{
 负载均衡算法主要有随机、加权随机、轮询、加权轮询、一致性Hash、最小连接数(单位时间处理效率)等
 负载均衡实现主要有DNS负载均衡、7层代理(nginx、http重定向)、4层负载(lvs)均衡等
 
- [负载均衡.md](jNote/负载均衡.md) 
+[负载均衡.md](%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.md)
 
 ## 算法
-
- [jCode.md](jCode.md) 
+[jCode.md](jCode.md)
 
 ## 数据结构
 
